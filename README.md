@@ -2,6 +2,10 @@
 
 A modern, animated web experience featuring a beautiful night sky theme and interactive card-based content.
 
+## 🎨 Design Inspiration
+
+This project is inspired by the beautiful parallax animation design created by [@Siyi Xia](https://www.figma.com/community/file/1160558853941633178/parallax-animation) on Figma. The design showcases a stunning night sky theme with smooth parallax effects and engaging card-based content layout.
+
 ## 🌟 Features
 
 - Stunning night sky background with blend effects
@@ -104,7 +108,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 👥 Authors
 
-- Your Name - Initial work
+- Martin Milani - Initial work
 
 ## 🙏 Acknowledgments
 
