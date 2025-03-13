@@ -1,0 +1,26 @@
+<div id="loader" class="fixed inset-0 z-50 flex items-center justify-center bg-[#071F4D]">
+  <div class="relative">
+    <!-- Night sky loader animation -->
+    <div class="w-16 h-16 relative">
+      <div class="animate-ping absolute inset-0 rounded-full bg-white opacity-10"></div>
+      <div class="animate-pulse absolute inset-2 rounded-full bg-white opacity-20"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Hide loader when everything is loaded
+  window.addEventListener("load", () => {
+    const loader = document.getElementById("loader");
+    if (loader) {
+      // Add fade out animation
+      loader.style.transition = "opacity 0.5s ease-out";
+      loader.style.opacity = "0";
+
+      // Remove loader from DOM after animation
+      setTimeout(() => {
+        loader.style.display = "none";
+      }, 500);
+    }
+  });
+</script>

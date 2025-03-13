@@ -1,5 +1,6 @@
 ---
 import "../styles/global.css";
+import Loader from "../components/Loader.astro";
 ---
 
 <!doctype html>
@@ -16,14 +17,33 @@ import "../styles/global.css";
       rel="preload"
       href="https://db.onlinewebfonts.com/c/243710884e5ebac408cd10a7a89fcc96?family=HarmonyOS+Sans+SC"
       as="style"
+      crossorigin="anonymous"
     />
     <link
       rel="stylesheet"
       href="https://db.onlinewebfonts.com/c/243710884e5ebac408cd10a7a89fcc96?family=HarmonyOS+Sans+SC"
+      crossorigin="anonymous"
     />
+
+    <!-- Prevent Flash of Unstyled Content -->
+    <style is:inline>
+      .loading {
+        visibility: hidden;
+      }
+    </style>
   </head>
-  <body class="font-harmony bg-[#071F4D] w-full">
-    <slot />
+  <body class="font-harmony bg-[#071F4D] w-full loading">
+    <Loader />
+    <main>
+      <slot />
+    </main>
+
+    <script>
+      // Remove loading class when fonts are loaded
+      document.fonts.ready.then(() => {
+        document.body.classList.remove("loading");
+      });
+    </script>
   </body>
 </html>
 
