@@ -1,0 +1,58 @@
+---
+import CardList from "./CardList.astro";
+import Heading from "./Heading.astro";
+---
+
+<section
+  class="w-full min-h-screen bg-[url('/src/images/nightsky.svg')] bg-cover bg-fixed px-6 pb-[120px] relative overflow-hidden"
+  id="experiences"
+>
+  <!-- Capa con el efecto de mezcla -->
+  <div class="absolute inset-0 bg-[#071F4D] mix-blend-hard-light"></div>
+
+  <!-- Contenido aislado -->
+  <div class="relative z-10 pt-20 lg:pt-[200px] h-full w-full flex flex-col justify-center">
+    <div class="mb-24">
+      <Heading
+        title="Discover our experiences"
+        subtitle="Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet."
+      />
+    </div>
+
+    <!-- CardList aislado del blend -->
+    <div class="relative z-20">
+      <CardList />
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  console.log("using GSAP: ", gsap.version, "on experiences");
+
+  // Register ScrollTrigger plugin
+  gsap.registerPlugin(ScrollTrigger);
+
+  const cards = [...document.querySelectorAll(".card")];
+  cards.forEach((card) => {
+    gsap.set(card, {
+      yPercent: 100,
+      autoAlpha: 0,
+    });
+  });
+
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: "#card-list",
+    },
+  });
+
+  tl.to(cards, {
+    yPercent: 0,
+    duration: 0.8,
+    stagger: 0.3,
+    ease: "power2.out",
+    autoAlpha: 1,
+  });
+</script>

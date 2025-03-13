@@ -1,0 +1,11 @@
+---
+import { Image } from "astro:assets";
+import downarrow from "../images/downarrow.svg";
+---
+
+<figure class="absolute bottom-10 left-1/2 -translate-x-1/2 z-30">
+  <a href="#experiences" class="flex flex-col items-center gap-2">
+    <Image src={downarrow} alt="arrow" class="w-6 h-6 animate-bounce" />
+    <h5 class="text-white text-xl">Scroll down</h5>
+  </a>
+</figure>

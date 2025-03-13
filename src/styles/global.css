@@ -1,0 +1,26 @@
+@import url(https://db.onlinewebfonts.com/c/243710884e5ebac408cd10a7a89fcc96?family=HarmonyOS+Sans+SC);
+@import "tailwindcss";
+
+@theme {
+  --font-harmony: "HarmonyOS Sans SC";
+}
+
+@layer components {
+  .link-hover {
+    @apply hover:text-blue-500;
+  }
+
+  .default-transition {
+    @apply transition-colors ease-in-out duration-300;
+  }
+}
+
+@layer utilities {
+  .anchor-name-menu-button {
+    anchor-name: --menu-button;
+  }
+  .position-anchor-menu-button {
+    position-anchor: --menu-button;
+    margin-block-start: 6px;
+  }
+}

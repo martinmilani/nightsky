@@ -1,0 +1,66 @@
+---
+import { Image } from "astro:assets";
+import background from "../images/background.svg";
+import hero from "../images/hero.svg";
+import Heading from "./Heading.astro";
+import ScrollDown from "./ScrollDown.astro";
+---
+
+<section class="w-full h-screen relative overflow-hidden">
+  <div
+    class="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 w-full px-6"
+    id="heading"
+  >
+    <Heading
+      title="Explore the Nightsky"
+      subtitle="Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit."
+    />
+  </div>
+  <Image
+    src={background}
+    alt="background"
+    class="absolute top-0 left-0 w-full h-full object-cover"
+    id="background-mountains"
+  />
+  <Image
+    src={hero}
+    alt="hero"
+    class="absolute bottom-[-22px] left-1/2 -translate-x-1/2 z-20"
+    id="telescope"
+  />
+  <ScrollDown />
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  console.log("using GSAP: ", gsap.version, "on hero");
+
+  gsap.set("#background-mountains", {
+    scale: 1.3,
+  });
+  gsap.set("#telescope", {
+    scale: 1.4,
+  });
+  gsap.set("#heading", {
+    yPercent: 250,
+    autoAlpha: 0,
+  });
+  gsap.to(["#background-mountains"], {
+    scale: 1,
+    duration: 1.2,
+    ease: "power1.inOut",
+  });
+
+  gsap.to(["#telescope"], {
+    scale: 0.9,
+    duration: 1.2,
+    ease: "power1.inOut",
+  });
+
+  gsap.to(["#heading"], {
+    yPercent: 0,
+    autoAlpha: 1,
+    duration: 1.2,
+    ease: "power1.inOut",
+  });
+</script>

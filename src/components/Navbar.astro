@@ -1,0 +1,75 @@
+<nav
+  class="fixed top-0 left-1/2 -translate-x-1/2 flex flex-row w-full justify-center items-center text-white py-1 px-4 bg-gray-700/5 backdrop-blur-md z-[99]"
+>
+  <div
+    class="max-w-screen-2xl flex flex-row w-full justify-between items-center text-white py-1 px-4"
+  >
+    <div class="font-bold text-[26px] p-2">
+      <a href="#">Nightsky</a>
+    </div>
+
+    <button
+      popovertarget="menu"
+      type="button"
+      class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-white rounded-lg md:hidden active:bg-gray-100 active:text-gray-900 default-transition anchor-name-menu-button"
+    >
+      <svg
+        class="w-5 h-5"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 17 14"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M1 1h15M1 7h15M1 13h15"></path>
+      </svg>
+    </button>
+
+    <div
+      id="menu"
+      popover
+      class="border-0 p-3 gap-2 rounded-lg bg-white text-gray-900 text-sm overflow-hidden m-0 inset-auto absolute top-[anchor(bottom)] right-[72px] md:hidden open:grid position-anchor-menu-button"
+    >
+      <a href="#" class="link-hover default-transition">Home</a>
+      <a href="#" class="link-hover default-transition">Experience</a>
+      <a href="#" class="link-hover default-transition">About us</a>
+      <a href="#" class="link-hover default-transition">Pricing</a>
+      <button
+        class="px-5 py-2 border rounded-full cursor-pointer hover:bg-blue-500 hover:border-white hover:text-white default-transition"
+        >Book a session</button
+      >
+    </div>
+
+    <div class="hidden w-full md:flex md:w-auto flex-row gap-10 items-center">
+      <a href="#" class="link-hover default-transition">Home</a>
+      <a href="#" class="link-hover default-transition">Experience</a>
+      <a href="#" class="link-hover default-transition">About us</a>
+      <a href="#" class="link-hover default-transition">Pricing</a>
+      <button
+        class="px-5 py-2 border rounded-full cursor-pointer hover:bg-white hover:text-gray-900 default-transition"
+        >Book a session</button
+      >
+    </div>
+  </div>
+</nav>
+
+<script>
+  import { gsap } from "gsap";
+  console.log("using GSAP: ", gsap.version, "on navbar");
+
+  gsap.set("nav", {
+    autoAlpha: 0,
+    yPercent: -100,
+  });
+  gsap.to("nav", {
+    autoAlpha: 1,
+    yPercent: 0,
+    duration: 1.2,
+    ease: "power4.out",
+    delay: 0.4,
+  });
+</script>

@@ -1,0 +1,22 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+  imageSrc: ImageMetadata;
+  title: string;
+  subtitle: string;
+}
+const { imageSrc, title, subtitle } = Astro.props;
+---
+
+<article class="flex flex-col text-white justify-center w-full max-w-[280px] card">
+  <Image
+    src={imageSrc}
+    alt={title}
+    class="max-h-[325px] max-w-[280px] rounded-[30px] mb-6 lg:mb-11"
+  />
+  <div class="">
+    <h3 class="font-bold text-[20px] mb-4">{title}</h3>
+    <p class="font-light text-[18px] mr-4">{subtitle}</p>
+  </div>
+</article>

@@ -1,0 +1,43 @@
+---
+import image1 from "../images/image-1.svg";
+import image2 from "../images/image-2.svg";
+import image3 from "../images/image-3.svg";
+import image4 from "../images/image-4.svg";
+import Card from "./Card.astro";
+
+const cards = [
+  {
+    imageSrc: image1,
+    title: "Nightfire Camping",
+    subtitle: "Velit officia consequat duis enim velit mollit.",
+  },
+  {
+    imageSrc: image2,
+    title: "Nightfire Camping",
+    subtitle: "Velit officia consequat duis enim velit mollit.",
+  },
+  {
+    imageSrc: image3,
+    title: "Nightfire Camping",
+    subtitle: "Velit officia consequat duis enim velit mollit.",
+  },
+  {
+    imageSrc: image4,
+    title: "Nightfire Camping",
+    subtitle: "Velit officia consequat duis enim velit mollit.",
+  },
+];
+---
+
+<div
+  id="card-list"
+  class="flex flex-col lg:flex-row w-full justify-center items-center gap-20 lg:gap-16"
+>
+  {
+    cards.map((card) => (
+      <div>
+        <Card imageSrc={card.imageSrc} title={card.title} subtitle={card.subtitle} />
+      </div>
+    ))
+  }
+</div>
